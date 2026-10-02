@@ -602,11 +602,34 @@ export default function App() {
       {showShareModal && (
         <div className="fixed inset-0 z-50 flex items-end justify-center bg-slate-900/40 backdrop-blur-sm sm:items-center transition-opacity" onClick={() => setShowShareModal(false)}>
           <div className="w-full max-w-[480px] bg-white sm:rounded-3xl rounded-t-3xl p-6 relative overflow-hidden animate-in slide-in-from-bottom-full sm:slide-in-from-bottom-0 sm:zoom-in-95 duration-300" onClick={(e) => e.stopPropagation()}>
-            <div className="flex justify-center items-center mb-6 relative">
+            <div className="flex justify-center items-center mb-5 relative">
               <h3 className="text-slate-900 font-bold text-[15px]">Bagikan {pageData.name}</h3>
               <button onClick={() => setShowShareModal(false)} className="absolute right-0 p-1 text-slate-500 hover:bg-slate-100 rounded-full transition-all">
                 <X size={20} />
               </button>
+            </div>
+
+            {/* SEO Social Share Preview Card */}
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden mb-6 shadow-sm">
+              <div className="aspect-[4/3] w-full overflow-hidden bg-slate-900 relative">
+                <img 
+                  src="./og-image.png" 
+                  alt="SEO Social Share Preview" 
+                  className="w-full h-full object-cover object-top" 
+                />
+                <span className="absolute top-2.5 right-2.5 px-2.5 py-1 bg-black/60 backdrop-blur-md rounded-lg text-[10px] text-white font-bold tracking-wide uppercase">
+                  Pratinjau Tautan
+                </span>
+              </div>
+              <div className="p-3.5 bg-white border-t border-slate-100 flex items-center justify-between">
+                <div>
+                  <h4 className="text-slate-900 font-bold text-[14px] leading-tight">{pageData.name}</h4>
+                  <p className="text-slate-500 text-[11px] leading-tight mt-0.5">{pageData.title}</p>
+                </div>
+                <span className="text-[11px] font-bold text-[#0f3c6e] bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-100">
+                  Palangka Raya
+                </span>
+              </div>
             </div>
             
             <div className="flex overflow-x-auto gap-3 pb-2 no-scrollbar items-start px-1 mb-6 mt-4">
